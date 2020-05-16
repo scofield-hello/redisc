@@ -1,0 +1,30 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/redisc.py",
+            "console": "integratedTerminal",
+            "args": [
+                "sentinel",
+                "192.168.0.16",
+                "26379",
+                "-dir=/usr/redis/",
+                "-dbfilenamePrefix=dump",
+                "-requirepass=123456",
+                "-loglevel=debug",
+                "-masterip=192.168.0.16",
+                "-masterport=6379",
+                "-masterauth=123456",
+                "-quorum=3",
+                "-downAfterMilliseconds=10000",
+                "-failoverTimeout=15000"
+            ]
+        }
+    ]
+}

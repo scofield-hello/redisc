@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/Users/Nick/.local/share/virtualenvs/redisc-iDw_CerA/bin/python",
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "yapf"
+}
