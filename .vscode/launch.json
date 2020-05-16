@@ -12,16 +12,16 @@
             "console": "integratedTerminal",
             "args": [
                 "sentinel",
-                "192.168.0.16",
-                "26379",
-                "-dir=/usr/redis/",
+                "192.168.10.3",
+                "26381",
+                "-dir=/Users/Nick/Dev/redis_data/",
                 "-dbfilenamePrefix=dump",
                 "-requirepass=123456",
                 "-loglevel=debug",
-                "-masterip=192.168.0.16",
+                "-masterip=192.168.10.3",
                 "-masterport=6379",
                 "-masterauth=123456",
-                "-quorum=3",
+                "-quorum=2",
                 "-downAfterMilliseconds=10000",
                 "-failoverTimeout=15000"
             ]
