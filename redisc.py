@@ -49,6 +49,12 @@ if __name__ == "__main__":
                         type=int,
                         default=6379,
                         help="master 端口")
+    parser.add_argument("-quorum",
+                        dest="quorum",
+                        action="store",
+                        type=int,
+                        default=2,
+                        help="quorum 比重, 默认为2")
     parser.add_argument("-output",
                         dest="output",
                         action="store",
@@ -80,6 +86,7 @@ if __name__ == "__main__":
     masterip = parsed_args.masterip
     masterport = parsed_args.masterport
     masterauth = parsed_args.masterauth
+    quorum = parsed_args.quorum
     down_after_milliseconds = parsed_args.downAfterMilliseconds
     failover_timeout = parsed_args.failoverTimeout
     output = parsed_args.output
@@ -131,14 +138,15 @@ if __name__ == "__main__":
             port=port,
             dir=directory,
             daemonize=daemonize,
+            loglevel=loglevel,
             dbfilenamePrefix=dbfilename_prefix,
             requirepass=requirepass,
             masterip=masterip,
             masterport=masterport,
             masterauth=masterauth,
+            quorum=quorum,
             downAfterMilliseconds=down_after_milliseconds,
-            failoverTimeout=failover_timeout,
-            loglevel=loglevel)
+            failoverTimeout=failover_timeout)
         filename = os.path.join(output, "sentinel_%s.conf" % port)
         startup_cmd = "src/redis-server sentinel_%s.conf --sentinel" % port
         connect_cmd = "src/redis-cli -h %s -p %s" % (bind, port)
